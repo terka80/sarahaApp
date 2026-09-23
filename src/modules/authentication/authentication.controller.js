@@ -8,7 +8,7 @@ return successResponse({ res, status: 201, data })
 })
 
 router.post("/login", async (req, res, next)=> {
-const data =await login(req.body)
+const data =await login(req.body,`${req.protocol}://${req.host}`)
 return successResponse({ res, data })
 })
 export default router

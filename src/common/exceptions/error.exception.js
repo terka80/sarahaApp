@@ -25,6 +25,15 @@ export const NotFoundException = (message = "Not Found", issues = {}) => {
     },
   });
 };
+export const BadException = (message = "Bad Request", issues = {}) => {
+  return ApplicationException({
+    message,
+    options: {
+      status: 400  ,
+      issues,
+    },
+  });
+};
 export const UnAuthorizedException = (message = "UnAuthorized", issues = {}) => {
   return ApplicationException({
     message,
