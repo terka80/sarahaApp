@@ -4,7 +4,7 @@ export const ApplicationException = ({
     cause: { status: 400 },
   },
 } = {}) => {
-  throw new Error(message, options);
+  throw new Error(message, { cause: options.cause ?? options });
 };
 
 export const ConflictException = (message = "Conflict", issues = {}) => {
@@ -29,12 +29,15 @@ export const BadException = (message = "Bad Request", issues = {}) => {
   return ApplicationException({
     message,
     options: {
-      status: 400  ,
+      status: 400,
       issues,
     },
   });
 };
-export const UnAuthorizedException = (message = "UnAuthorized", issues = {}) => {
+export const UnAuthorizedException = (
+  message = "UnAuthorized",
+  issues = {},
+) => {
   return ApplicationException({
     message,
     options: {

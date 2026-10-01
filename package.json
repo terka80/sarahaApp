@@ -21,6 +21,8 @@
     "mongodb": "^7.6.0",
     "mongoose": "^9.9.5",
     "mysql2": "^3.23.4",
-    "sequelize": "^6.37.8"
+    "redis": "^6.3.0",
+    "sequelize": "^6.37.8",
+    "zod": "^4.6.5"
   }
 }

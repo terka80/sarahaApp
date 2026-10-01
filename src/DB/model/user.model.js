@@ -37,8 +37,9 @@ export const userSchema = new mongoose.Schema(
     role: {
       type: Number,
       enum: Object.values(RoleEnum),
-      default: RoleEnum.MALE,
+      default: RoleEnum.USER,
     },
+    changeCredentialsTime :Date
   },
   {
     strict: true,
