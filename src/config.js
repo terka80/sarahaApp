@@ -6,6 +6,7 @@ config({
 });
 
 export const PORT = parseInt(process.env.PORT ?? "9000");
+export const SALT = parseInt(process.env.SALT ?? "12");
 
 export const DB_URI = process.env.DB_URI;
 export const REDIS_URI = process.env.REDIS_URI;
@@ -26,3 +27,15 @@ export const ACCESS_TOKEN_EXPIRES_IN =parseInt(process.env.ACCESS_TOKEN_EXPIRES_
 export const REFRESH_USER_TOKEN_SIGNATURE = process.env.REFRESH_TOKEN_SIGNATURE;
 export const REFRESH_ADMIN_TOKEN_SIGNATURE = process.env.REFRESH_TOKEN_SIGNATURE;
 export const REFRESH_TOKEN_EXPIRES_IN =parseInt(process.env.REFRESH_TOKEN_EXPIRES_IN ?? "31536000");
+
+
+
+
+
+
+export const APP_EMAIL = process.env.APP_EMAIL;
+export const APP_PASSWORD = process.env.APP_PASSWORD;
+export const APPLICATION_NAME = process.env.APPLICATION_NAME;
+
+
+export const  WEB_CLIENT_ID = process.env.WEB_CLIENT_ID.split(',')

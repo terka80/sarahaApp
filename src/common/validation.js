@@ -28,4 +28,5 @@ export const generalValidationFields = {
   confirmPassword: z.string().min(8).max(16),
   gender: z.enum(GenderEnum),
   matchFields,
+  otp:(lang)=>z.string().regex(/^\d{6$}/,{error:'invalid code'})
 };

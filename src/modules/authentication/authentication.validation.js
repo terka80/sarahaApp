@@ -21,8 +21,8 @@ export const signup = (lang)=>{
     .safeExtend({
       username: generalValidationFields.username(lang),
       phone: generalValidationFields.phone,
-      confirmPassword: generalValidationFields.password,
       gender: generalValidationFields.gender,
+      confirmPassword: generalValidationFields.password,
     })
     .superRefine((data, ctx) => {
       console.log({ data, ctx });
@@ -43,6 +43,61 @@ export const signup = (lang)=>{
     }),
 })
 };
+
+
+
+
+export const confirmEmail = (lang)=>{
+  return  z.object({
+  body: z.strictObject({
+    email: generalValidationFields.email(lang),
+    otp:generalValidationFields.otp(lang)
+  }),
+
+});
+
+}
+
+export const resendConfirmEmail = (lang)=>{
+  return  z.object({
+  body: z.strictObject({
+    email: generalValidationFields.email(lang),
+  }),
+
+});
+
+}
+export const resetForgotPassword = (lang)=>{
+  return  z.object({
+  body: z.strictObject({
+    email: generalValidationFields.email(lang),
+    otp: generalValidationFields.otp(lang),
+      password: generalValidationFields.password,
+    confirmPassword: generalValidationFields.password,
+    })
+    .superRefine((data, ctx) => {
+      console.log({ data, ctx });
+      generalValidationFields.matchFields({
+        original: "password",
+        copy: "confirmPassword",
+        data,
+        ctx,
+        lang
+      });
+
+})
+})
+
+}
+
+
+
+
+
+
+
+
+
 
 // .refine((data)=>{
 //     console.log({data});
